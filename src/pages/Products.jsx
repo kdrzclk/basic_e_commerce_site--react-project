@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./Products.module.css";
 
 const Products = () => {
@@ -13,14 +14,15 @@ const Products = () => {
     <div>
       <h2>Products Page</h2>
 
-      <div className={styles.products}>
+      <Link to={`details`} className={styles.products}>
         {products.map((each) => (
           <div key={each.id} className={styles.product}>
+            <img style={{ width: "100px" }} src={each.image} alt="" />
             <h6> {each.category} </h6>
             <p> {each.title} </p>
           </div>
         ))}
-      </div>
+      </Link>
     </div>
   );
 };
