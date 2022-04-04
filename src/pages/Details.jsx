@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import BackArrow from "../assets/BackArrow";
+import CheckoutBag from "../assets/CheckoutBag";
+
 import styles from "./Details.module.css";
 
 const Details = () => {
   const params = useParams();
+  let navigate = useNavigate();
   const [product, setProduct] = useState({});
   console.log(params.productId);
 
@@ -13,9 +17,22 @@ const Details = () => {
       .then((data) => setProduct(data));
   }, [params.productId]);
 
+  const handleBack = () => {
+    navigate(-1);
+  };
+
+  const handleCheckout = () => {
+    navigate("/checkout");
+  };
+
   return (
     <div>
-      <h1>Details Page</h1>
+      <div className={styles.detailsNav}>
+        <BackArrow onClick={handleBack} />
+        <h1>Details Page</h1>
+        <CheckoutBag onClick={handleCheckout} />
+      </div>
+
       <div className={styles.detailsWrapper}>
         <img
           className={styles.detailsImage}

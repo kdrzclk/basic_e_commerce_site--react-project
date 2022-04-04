@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import Products from "./pages/Products";
 import NotFound from "./pages/NotFound";
 import Details from "./pages/Details";
+import Checkout from "./pages/Checkout";
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/products" element={<Products />} />
             <Route path="/products/details/:productId" element={<Details />} />
-
+            <Route path="/checkout" element={<Checkout />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
