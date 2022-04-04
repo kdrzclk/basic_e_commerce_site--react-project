@@ -14,15 +14,19 @@ const Products = () => {
     <div>
       <h2>Products Page</h2>
 
-      <Link to={`details`} className={styles.products}>
+      <div className={styles.products}>
         {products.map((each) => (
-          <div key={each.id} className={styles.product}>
+          <Link
+            to={`details/${each.id}`}
+            key={each.id}
+            className={styles.product}
+          >
             <img style={{ width: "100px" }} src={each.image} alt="" />
             <h6> {each.category} </h6>
             <p> {each.title} </p>
-          </div>
+          </Link>
         ))}
-      </Link>
+      </div>
     </div>
   );
 };
