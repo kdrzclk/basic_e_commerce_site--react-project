@@ -22,15 +22,18 @@ const Details = () => {
   };
 
   const handleCheckout = () => {
-    navigate("/checkout");
+    navigate("/checkout", { state: { product } });
   };
 
   return (
     <div>
       <div className={styles.detailsNav}>
-        <BackArrow onClick={handleBack} />
+        <BackArrow className={styles.detailsNavIcon} onClick={handleBack} />
         <h1>Details Page</h1>
-        <CheckoutBag onClick={handleCheckout} />
+        <CheckoutBag
+          className={styles.detailsNavIcon}
+          onClick={handleCheckout}
+        />
       </div>
 
       <div className={styles.detailsWrapper}>
